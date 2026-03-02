@@ -1,0 +1,23 @@
+<template>
+    <lightning-card title="Account List View" icon-name="standard:account">
+        <template if:true={accounts}>
+            <lightning-datatable
+                key-field="Id"
+                data={accounts}
+                columns={columns}
+                hide-checkbox-column
+                show-row-number-column>
+            </lightning-datatable>
+        </template>
+
+        <template if:true={error}>
+            <div class="slds-text-color_error slds-p-around_medium">
+                Error loading accounts.
+            </div>
+        </template>
+
+        <template if:false={accounts}>
+            <lightning-spinner alternative-text="Loading"></lightning-spinner>
+        </template>
+    </lightning-card>
+</template>
